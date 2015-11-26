@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>My Contact Manager</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom-style.css">
+
+  </head>
+  <body>
+    <!-- navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+		    <div class="navbar-header">
+		    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			    </button>
+		      <a class="navbar-brand text-uppercase" href="#">
+		        <p> My Contact Manager </p>
+		      </a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="navbar-collapse">
+		    	<div class="nav navbar-right navbar btn">
+
+		    		<a href="/form.html" class="btn btn-default">
+		    			<i class="glyphicon glyphicon-plus"></i>
+		    			Add Contact
+		    		</a>
+		    	</div>
+		    </div>
+		  </div>  
+	</nav>
+
+	<!-- content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="#" class="list-group-item">All Contacts <span class="badge">10</span></a>
+					<a href="" class="list-group-item">Friends <span class="badge">6</span></a>
+					<a href="" class="list-group-item">Family <span class="badge">3</span></a>
+					<a href="" class="list-group-item">Concubines <span class="badge">3</span></a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+				<p>FORM</p>
+				</div>
+				<div class="text-centre">
+					<nav>
+					  <ul class="pagination">
+					    <li>
+					      <a href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li><a href="#">1</a></li>
+					    <li><a href="#">2</a></li>
+					    <li><a href="#">3</a></li>
+					    <li><a href="#">4</a></li>
+					    <li><a href="#">5</a></li>
+					    <li>
+					      <a href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+  </body>
+</html>

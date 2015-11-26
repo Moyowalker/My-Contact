@@ -1,0 +1,51 @@
+body {
+	padding: 90px;
+	background: #d0c4dd;
+}
+
+.navbar {
+	-moz-box-shadow: (0, 0, 0, 0, 10) 0 2px 0;
+	-webkit-box-shadow: (0, 0, 0, 0, 10) 0 2px 0;
+	box-shadow: (0, 0, 0, 0, 10) 0 2px 0;
+}
+.navbar .navbar-brand {
+	font-weight: bold;
+	letter-spacing: -1px;
+	font-size: 20px;
+	color: #dd5638;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.table tbody>tr>td.middle {
+	vertical-align: middle;
+}
+
+.media {
+	padding: 10px 0;
+}
+
+.media img {
+	border-radius: 50%;
+}
+
+.media-left {
+	padding: 0 20px;
+}
+
+.media-heading {
+	color: #dd5638;
+	margin-bottom: 10px;
+}
+
+.media {
+	padding: 10px 0;
+}
