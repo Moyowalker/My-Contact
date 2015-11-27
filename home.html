@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jasny-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/custom-style.css">
     <script src="js/jquery.min.js"></script>
     
@@ -61,7 +62,7 @@
 							<div class="media">
                              <div class="media-left">
                                  <a href="#">
-                                 <img class="media-object" src="image/skywalker.jpg" width="200x200">
+                                 <img class="media-object" src="" width="200x200">
                                  </a>
                              </div>
 							  <div class="media-body">
@@ -79,7 +80,7 @@
 							<a href="#" ng-click="edit(contact.id)" title="edit">  
 							<i class="glyphicon glyphicon-edit"></i>
 							</a>
-						<a href="#" ng-click="delete(contact.id)" title="delete">
+						<a href="#" ng-click="delete($index)" title="delete">
 							<i class="glyphicon glyphicon-remove-sign"></i>
 							</a>
 						</td>
@@ -143,41 +144,40 @@
 		</div>
 	</div>
 		
-	<form ng-if="showForm === true">
+	<form name="userform" ng-if="showForm === true">
 		<div class="panel panel-default">
 				<table class="table">
-
 				<div class="panel-body">
 					<div class="form-horizontal">
 						<div class="row">
 							<div class="col-md-8">
 								<div class="form-group">
 									<label for "name" class="control-label col-md-3">Name</label>
-									<div class="col-md-8">
-										<input type="text" name="name" ng-model="newcontact.name"/>
+									<div class="col-md-5">
+										<input type="text" id="name" name="name" class="form-control" ng-model="newcontact.name" required/>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for "address" class="control-label col-md-3">Address</label>
-									<div class="col-md-8">
-										<input type="text" name="address" ng-model="newcontact.address"/>
+									<div class="col-md-5">
+										<input type="text" id="address" name="address" class="form-control" ng-model="newcontact.address" required/>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for "email" class="control-label col-md-3">Email</label>
-									<div class="col-md-8">
-										<input type="text" name="email" ng-model="newcontact.email"/+>
+									<div class="col-md-5">
+										<input type="text" id="email" name="email" class="form-control" ng-model="newcontact.email" required/>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for "phone" class="control-label col-md-3">Phone No.</label>
-									<div class="col-md-8">
-										<input type="text" name="phone" ng-model="newcontact.phone"/>
+									<div class="col-md-5">
+										<input type="text" id="phone" name="phone" class="form-control" ng-model="newcontact.phone" required/>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for "group" class="control-label col-md-3">Group</label>
-									<div class="col-md-5">
+									<div class="col-md-4">
 										<select name="group" id="group" class="form-control" ng-model="newcontact.group">
 											<option value="">Select group</option>
 											<option value="Family">Family</option>
@@ -204,15 +204,12 @@
 							</div>
 							<div class="col-md-4">
 								<div class="fileinput fileinput-new" data-provides="fileinput">
-									  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
-									    <img class="media object" src="image/skywalker.jpg" alt="...">
-									  </div>
-									  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-									  <div class="text-centre">
-									    <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-									    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-									  </div>
-									</div>
+								  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 150px; height: 150px;"></div>
+								  <div class="text-center">
+								    <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+								    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+								  </div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -222,8 +219,8 @@
 						<div class="col-md-8">
 							<div class="row">
 								<div class="col-md-offset-3 col-md-6">
-									<input type="button" value="Save" ng-click="saveContact()"/>
-									<input type="hidden" ng-model="newcontact.id"/>
+									<button ng-disabled='userform.$invalid'class="btn btn-success" ng-click="saveContact()">Save</button>
+									<!-- <input type="hidden" ng-model="newcontact.id"/> -->
 									<a href="#" class="btn btn-default">Cancel</a>
 								</div>
 							</div>
@@ -232,13 +229,13 @@
 					
 				</div>
 				<script>
-				$("#add-new-group").hide();
-				$('#add-group-btn').click(function () {
-				$("#add-new-group").slideToggle(function() {
-					$("#new-group").focus();
-				});
-					return false;
-				});
+						$("#add-new-group").hide();
+						$('#add-group-btn').click(function () {
+						$("#add-new-group").slideToggle(function() {
+							$("#new-group").focus();
+						});
+							return false;
+						});
 				</script>
 			</div>
 		</table>
@@ -247,6 +244,7 @@
 
 	
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jasny-bootstrap.min.js"></script>"
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="myApp.js"></script>

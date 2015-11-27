@@ -33,7 +33,7 @@ body {
 	padding: 10px 0;
 }
 
-.media img {
+.media img, .fileinput .thumbnail, .thumbnail img {
 	border-radius: 50%;
 }
 
