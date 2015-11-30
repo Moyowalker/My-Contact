@@ -1,6 +1,6 @@
 body {
 	padding: 90px;
-	background: #d0c4dd;
+	background: #222222;
 }
 
 .navbar {
@@ -11,8 +11,9 @@ body {
 .navbar .navbar-brand {
 	font-weight: bold;
 	letter-spacing: -1px;
-	font-size: 20px;
-	color: #dd5638;
+	font-size: 25px;
+	color: light gray;
+	height: 1em;
 }
 
 .btn-circle {
@@ -27,6 +28,7 @@ body {
 
 .table tbody>tr>td.middle {
 	vertical-align: middle;
+	color: navy;
 }
 
 .media {
@@ -43,7 +45,7 @@ body {
 
 .media-heading {
 	color: #dd5638;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .media {
