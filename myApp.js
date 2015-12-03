@@ -22,6 +22,7 @@ angular.module('myApp', ['ngRoute'])
 
 	$scope.otherCount = 0;
 	
+	$scope.myData = new Firebase("https://my-contact-manager.firebaseio.com/Contacts")
 
 	$scope.newcontact = {isDeleted: false};
 		$scope.contacts = [];
@@ -46,35 +47,57 @@ angular.module('myApp', ['ngRoute'])
 		// // 	}
 		// // }
 		//for new contact
+		var contacts = [];
 		$scope.saveContact = function () {
-			var contacts = [];
-			if ($scope.newcontact.id == null) {
-				$scope.newcontact.id = ++uid;
-				contacts.push($scope.newcontact);
-				$scope.contacts.push($scope.newcontact);
-			}
-			//this is for updating the contact
-			else {
-				for(i in $scope.contacts){
-					if($scope.contact[i].id == $scope.newcontact.id) {
-						$scope.contacts[i] = $scope.newcontact;
-					}
-				} 
-			}
-			console.log(contacts)
-			for(var i = 0; i < contacts.length; i++){
+			console.log("What is happening?")
+			contacts.push($scope.newcontact);
+			$scope.myData.push($scope.newcontact);
+			// {
+			// 	Name:$scope.newcontact.newContactName,
+			// 	Address:$scope.newcontact.newContactAddress,
+			// 	Phone:$scope.newcontact.newContactPhone,
+			// 	Email:$scope.newcontact.newContactEmail,
+			// 	Group:$scope.newcontact.newContactGroup});
+		};
+
+		$scope.myData.on("value", function(snapshot) {
+			$scope.contactg = snapshot.val();
+	 		$scope.contacts = [];
+			angular.forEach($scope.contactg , function(i){
+				$scope.contacts.push(i);
+			})
+			
+			for(var i = 0; i < $scope.contacts.length; i++){
 				//console.log($scope.contacts[i]);
-				if(contacts[i].group == "Family"){
+				if($scope.contacts[i].group == "Family"){
 					$scope.familyCount += 1;
-				} else if (contacts[i].group == "Friend") {
+				} else if ($scope.contacts[i].group == "Friend") {
 					$scope.friendCount += 1;
 				} else {
 					$scope.otherCount += 1;
 				}
 			}
-			
+			$scope.$apply();
+
+		});
+			// var contacts = [];
+			// if ($scope.newcontact.id == null) {
+			// 	$scope.newcontact.id = ++uid;
+			// 	contacts.push($scope.newcontact);
+			// 	$scope.contacts.push($scope.newcontact);
+			// }
+			//this is for updating the contact
+			// else {
+			// 	for(i in $scope.contacts){
+			// 		if($scope.contact[i].id == $scope.newcontact.id) {
+			// 			$scope.contacts[i] = $scope.newcontact;
+			// 		}
+			// 	} 
+			// }
+			//console.log(contacts)
+
 			$scope.newcontact = {isDeleted: false};
-			}
+			
 
 		$scope.delete = function(id) {
 			//this is for 
